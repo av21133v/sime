@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="es">
-    
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,119 +12,129 @@
 
     <main class="panel">
 
+        <!-- Menú de navegación de prácticas -->
+        <nav name="menu" style="margin-bottom: 20px;">
+            <button data-vista="practica1">Práctica 1</button>
+            <button data-vista="practica2">Práctica 2</button>
+            <button data-vista="practica3" class="activo">Práctica 3</button>
+        </nav>
+
         <header>
             <p class="eyebrow">Proyecto Local Storage SIME</p>
             <h1>Inventario actual de materiales escolares</h1>
         </header>
 
-        <!-- Estadísticas -->
-        <section class="indicadores">
+        <!-- Contenedor dinámico (aquí se cargarán las vistas o se quedará el inventario fijo) -->
+        <section id="app">
 
-            <div class="indicador">
-                <span>Total de productos</span>
-                <strong id="totalProductos">0</strong>
-            </div>
-
-            <div class="indicador">
-                <span>Total de unidades</span>
-                <strong id="totalUnidades">0</strong>
-            </div>
-
-            <div class="indicador">
-                <span>Agotados</span>
-                <strong id="totalAgotados">0</strong>
-            </div>
-
-            <div class="indicador">
-                <span>Valor del inventario</span>
-                <strong id="valorInventario">$0.00</strong>
-            </div>
-
-        </section>
-
-        <div class="contenido">
-
-            <!-- Formulario de alta y edición -->
-            <section class="registro">
-                <h2>Material</h2>
-
-                <form id="formulario" novalidate>
-                    <label for="nombre">Nombre</label>
-                    <input id="nombre" name="nombre" type="text" placeholder="Ej. Cuaderno" required>
-
-                    <label for="categoria">Categoría</label>
-                    <select id="categoria" name="categoria" required>
-                        <option value="Papelería">Papelería</option>
-                        <option value="Tecnología">Tecnología</option>
-                        <option value="Limpieza">Limpieza</option>
-                        <option value="Otros">Otros</option>
-                    </select>
-
-                    <label for="cantidad">Cantidad</label>
-                    <input id="cantidad" name="cantidad" type="number" min="0" step="1" placeholder="0" required>
-
-                    <label for="precio">Precio (MXN)</label>
-                    <input id="precio" name="precio" type="number" min="0" step="0.01" placeholder="0.00" required>
-
-                    <button id="guardarMaterial" type="submit">Guardar material</button>
-                    <button id="cancelarEdicion" type="button" hidden>Cancelar edición</button>
-                </form>
-
-                <!-- Lo usare para mensajes de error y éxito -->
-                <p id="estado" role="status" ></p>
-            </section>
-
-            <!-- Búsqueda, filtros y tabla -->
-            <section class="listado">
-                <h2>Materiales registrados</h2>
-
-                <div class="filtros">
-                    <label for="buscar">Buscar por nombre</label>
-                    <input id="buscar" type="search" placeholder="Buscar...">
-
-                    <label for="filtroCategoria">Categoría</label>
-                    <select id="filtroCategoria">
-                        <option value="todas">Todas</option>
-                        <option value="Papelería">Papelería</option>
-                        <option value="Tecnología">Tecnología</option>
-                        <option value="Limpieza">Limpieza</option>
-                        <option value="Otros">Otros</option>
-                    </select>
-
-                    <label for="filtroEstado">Estado</label>
-                    <select id="filtroEstado">
-                        <option value="todos">Todos</option>
-                        <option value="Disponible">Disponible</option>
-                        <option value="Agotado">Agotado</option>
-                    </select>
+            <!-- Estadísticas -->
+            <section class="indicadores">
+                <div class="indicador">
+                    <span>Total de productos</span>
+                    <strong id="totalProductos">0</strong>
                 </div>
 
-                <table>
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre</th>
-                            <th>Categoría</th>
-                            <th>Cantidad</th>
-                            <th>Precio</th>
-                            <th>Estado</th>
-                            <th>Acciones</th>
-                        </tr>
-                    </thead>
-                    <!-- Las filas se crearan desde JavaScript -->
-                    <tbody id="listaMateriales"></tbody>
-                </table>
+                <div class="indicador">
+                    <span>Total de unidades</span>
+                    <strong id="totalUnidades">0</strong>
+                </div>
 
-                <p id="sinResultados" hidden>No hay materiales que mostrar.</p>
+                <div class="indicador">
+                    <span>Agotados</span>
+                    <strong id="totalAgotados">0</strong>
+                </div>
+
+                <div class="indicador">
+                    <span>Valor del inventario</span>
+                    <strong id="valorInventario">$0.00</strong>
+                </div>
             </section>
-        </div>
 
-        <!-- será la confirmación para eliminar-->
-        <dialog id="dialogoEliminar">
-            <p id="textoConfirmacion"></p>
-            <button id="confirmarEliminar" type="button">Eliminar</button>
-            <button id="cancelarEliminar" type="button">Cancelar</button>
-        </dialog>
+            <div class="contenido">
+
+                <!-- Formulario de alta y edición -->
+                <section class="registro">
+                    <h2>Material</h2>
+
+                    <form id="formulario" novalidate>
+                        <label for="nombre">Nombre</label>
+                        <input id="nombre" name="nombre" type="text" placeholder="Ej. Cuaderno" required>
+
+                        <label for="categoria">Categoría</label>
+                        <select id="categoria" name="categoria" required>
+                            <option value="Papelería">Papelería</option>
+                            <option value="Tecnología">Tecnología</option>
+                            <option value="Limpieza">Limpieza</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+
+                        <label for="cantidad">Cantidad</label>
+                        <input id="cantidad" name="cantidad" type="number" min="0" step="1" placeholder="0" required>
+
+                        <label for="precio">Precio (MXN)</label>
+                        <input id="precio" name="precio" type="number" min="0" step="0.01" placeholder="0.00" required>
+
+                        <button id="guardarMaterial" type="submit">Guardar material</button>
+                        <button id="cancelarEdicion" type="button" hidden>Cancelar edición</button>
+                    </form>
+
+                    <!-- Lo usare para mensajes de error y éxito -->
+                    <p id="estado" role="status"></p>
+                </section>
+
+                <!-- Búsqueda, filtros y tabla -->
+                <section class="listado">
+                    <h2>Materiales registrados</h2>
+
+                    <div class="filtros">
+                        <label for="buscar">Buscar por nombre</label>
+                        <input id="buscar" type="search" placeholder="Buscar...">
+
+                        <label for="filtroCategoria">Categoría</label>
+                        <select id="filtroCategoria">
+                            <option value="todas">Todas</option>
+                            <option value="Papelería">Papelería</option>
+                            <option value="Tecnología">Tecnología</option>
+                            <option value="Limpieza">Limpieza</option>
+                            <option value="Otros">Otros</option>
+                        </select>
+
+                        <label for="filtroEstado">Estado</label>
+                        <select id="filtroEstado">
+                            <option value="todos">Todos</option>
+                            <option value="Disponible">Disponible</option>
+                            <option value="Agotado">Agotado</option>
+                        </select>
+                    </div>
+
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Categoría</th>
+                                <th>Cantidad</th>
+                                <th>Precio</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                        <!-- Las filas se crearan desde JavaScript -->
+                        <tbody id="listaMateriales"></tbody>
+                    </table>
+
+                    <p id="sinResultados" hidden>No hay materiales que mostrar.</p>
+                </section>
+            </div>
+
+            <!-- será la confirmación para eliminar-->
+            <dialog id="dialogoEliminar">
+                <p id="textoConfirmacion"></p>
+                <button id="confirmarEliminar" type="button">Eliminar</button>
+                <button id="cancelarEliminar" type="button">Cancelar</button>
+            </dialog>
+
+        </section>
 
     </main>
 
