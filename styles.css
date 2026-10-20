@@ -1,0 +1,205 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f7ecf7;
+    margin: 0;
+    color: #333;
+}
+
+/* Panel principal */
+.panel {
+    max-width: 1200px;
+    margin: auto;
+    background-color: rgb(253, 252, 252);
+    padding: 25px;
+    border-radius: 10px;
+}
+
+/* Encabezado */
+header {
+    margin-bottom: 25px;
+}
+
+.eyebrow {
+    color: #4267a9;
+    font-size: 14px;
+}
+
+h1 {
+    font-size: 26px;
+}
+
+h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+/* Indicadores */
+.indicadores {
+    display: flex;
+}
+
+.indicador {
+    flex: 1;
+    background-color: #eef3fa;
+    padding: 15px;
+}
+
+
+
+.indicador strong {
+    display: block;
+    font-size: 22px;
+    margin-top: 8px;
+    color: #315b96;
+}
+
+/* Formulario y listado */
+.contenido {
+    display: flex;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.registro {
+    width: 250px;
+    flex-shrink: 0;
+}
+
+.listado {
+    flex: 1;
+    min-width: 0;
+}
+
+/* Campos */
+label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+input,
+select {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: white;
+}
+
+input:focus,
+select:focus {
+    outline: 2px solid #b6cbed;
+}
+
+/* Botones */
+button {
+    padding: 10px 14px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #315b96;
+    color: white;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #244575;
+}
+
+/* Filtros */
+.filtros {
+    margin-bottom: 20px;
+}
+
+/* Tabla */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+th,
+td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+th {
+    background-color: #eef3fa;
+    color: #315b96;
+}
+
+/* Mensajes */
+#estado {
+    font-size: 14px;
+}
+
+#sinResultados {
+    color: #666;
+}
+
+/* Ventana de confirmación */
+dialog {
+    border: none;
+    border-radius: 8px;
+    padding: 25px;
+    box-shadow: 0 4px 15px #0003;
+}
+
+dialog::backdrop {
+    background-color: #0005;
+}
+
+/* Adaptación a pantallas pequeñas */
+@media (max-width: 800px) {
+    .indicadores {
+        flex-wrap: wrap;
+    }
+
+    .indicador {
+        min-width: 130px;
+    }
+
+    .contenido {
+        flex-direction: column;
+    }
+
+    .registro {
+        width: 100%;
+    }
+
+    .listado {
+        width: 100%;
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 650px;
+    }
+}
+
+/* Botones de acciones en la tabla y diálogo */
+td button {
+    margin-top: 0;
+    margin-right: 6px;
+    padding: 6px 10px;
+}
+
+button.editar {
+    background-color: #0f766e;
+}
+
+button.eliminar,
+#confirmarEliminar {
+    background-color: #b42318;
+}
+
+#cancelarEdicion,
+#cancelarEliminar {
+    background-color: #6c757d;
+}
