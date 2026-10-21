@@ -7,6 +7,25 @@ body {
     margin: auto;
 }
 
+/* Estilos para el menú de navegación */
+nav[name="menu"] {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+nav[name="menu"] button {
+    width: auto; /* Evita que ocupen el 100% del ancho */
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+/* Estilo para resaltar la pestaña activa */
+nav[name="menu"] button.activo {
+    font-weight: bold;
+    background-color: #ddd;
+}
+
 .indicadores {
     display: flex;
     gap: 10px;

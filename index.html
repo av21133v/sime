@@ -14,15 +14,12 @@
 
         <!-- Menú de navegación de prácticas -->
         <nav name="menu" style="margin-bottom: 20px;">
+            <button data-vista="SIME" class="activo">SIME Inventario</button>
             <button data-vista="practica1">Práctica 1</button>
             <button data-vista="practica2">Práctica 2</button>
-            <button data-vista="practica3" class="activo">Práctica 3</button>
+            <button data-vista="practica3">Práctica 3</button>
         </nav>
 
-        <header>
-            <p class="eyebrow">Proyecto Local Storage SIME</p>
-            <h1>Inventario actual de materiales escolares</h1>
-        </header>
 
         <!-- Contenedor dinámico (aquí se cargarán las vistas o se quedará el inventario fijo) -->
         <section id="app">
@@ -119,7 +116,7 @@
                                 <th>Acciones</th>
                             </tr>
                         </thead>
-                        <!-- Las filas se crearan desde JavaScript -->
+                        <!-- Las filas se crean desde JavaScript -->
                         <tbody id="listaMateriales"></tbody>
                     </table>
 
@@ -127,7 +124,7 @@
                 </section>
             </div>
 
-            <!-- será la confirmación para eliminar-->
+            <!-- Confirmación para eliminar -->
             <dialog id="dialogoEliminar">
                 <p id="textoConfirmacion"></p>
                 <button id="confirmarEliminar" type="button">Eliminar</button>
