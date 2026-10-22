@@ -23,6 +23,12 @@ function inicializarInventario() {
     let filtroCategoria = document.querySelector("#filtroCategoria");
     let filtroEstado = document.querySelector("#filtroEstado");
 
+    // Elementos para las estadísticas (indicadores)
+    let totalProductos = document.querySelector("#totalProductos");
+    let totalUnidades = document.querySelector("#totalUnidades");
+    let totalAgotados = document.querySelector("#totalAgotados");
+    let valorInventario = document.querySelector("#valorInventario");
+
     // Muestra un mensaje en pantalla (éxito o error)
     function mostrarMensaje(texto, tipo) {
         estadoApp.textContent = texto;
@@ -57,6 +63,33 @@ function inicializarInventario() {
                 }
             });
         }
+    }
+
+    // Calcula y muestra los indicadores superiores y el valor del inventario
+    function actualizarIndicadores() {
+        let sumaUnidades = 0;
+        let contadorAgotados = 0;
+        let sumaValor = 0;
+
+        // Recorrer todos los materiales para hacer las sumas
+        materiales.forEach(material => {
+            // Sumar la cantidad de unidades de cada material
+            sumaUnidades = sumaUnidades + material.cantidad;
+
+            // Multiplicar cantidad por precio y sumarlo al valor total
+            sumaValor = sumaValor + (material.cantidad * material.precio);
+
+            // Si la cantidad es 0, aumentar el contador de agotados
+            if (material.cantidad === 0) {
+                contadorAgotados++;
+            }
+        });
+
+        // Mostrar los resultados en el HTML
+        totalProductos.textContent = materiales.length;
+        totalUnidades.textContent = sumaUnidades;
+        totalAgotados.textContent = contadorAgotados;
+        valorInventario.textContent = "$" + sumaValor.toFixed(2);
     }
 
     // Muestra y actualiza los materiales en la tabla aplicando los filtros de búsqueda
@@ -172,7 +205,14 @@ function inicializarInventario() {
 
         // Mostrar aviso si no hay resultados que mostrar en la tabla
         sinResultados.hidden = materialesFiltrados.length > 0;
+
+        // Mostrar aviso si no hay resultados que mostrar en la tabla
+        sinResultados.hidden = materialesFiltrados.length > 0;
+
+        // Actualizar los indicadores superiores
+        actualizarIndicadores();
     }
+    
 
     // Evento para guardar un material nuevo o actualizar uno existente mediante el formulario
     formulario.addEventListener("submit", (evento) => {
