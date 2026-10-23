@@ -451,7 +451,7 @@ function renderListaTareas() {
     // La vista se construye con innerHTML, igual que las otras vistas del proyecto.
     contenedorApp.innerHTML = `
         <section class="vista-card">
-            <h1>Práctica 1: Lista de tareas persistente</h1>
+            <h1>Práctica : Lista de tareas persistente</h1>
             <form id="formularioTareas" class="form-fila">
                 <input type="text" id="tarea" name="tarea" placeholder="Escribe una tarea" required>
                 <button type="submit">Agregar tarea</button>
@@ -530,7 +530,7 @@ function renderTablero() {
 
     contenedorApp.innerHTML = `
         <section class="vista-card">
-            <h1>Práctica 2: Tablero de actividades</h1>
+            <h1>Práctica : Tablero de actividades</h1>
             <p class="eyebrow">Ejercicio Tablero de Actividades</p>
             <form id="formularioTablero" class="form-fila">
                 <input type="text" name="titulo" placeholder="Nueva actividad" required>
@@ -666,7 +666,7 @@ function renderCarrito() {
 
     contenedorApp.innerHTML = `
         <section class="vista-card">
-            <h1>Práctica 3: Carrito de compras</h1>
+            <h1>Práctica : Carrito de compras</h1>
             <p id="estadoCarrito"></p>
             <section id="productos" class="tarjetas-producto"></section>
             <h2 id="totalCarrito"></h2>
@@ -732,7 +732,7 @@ function renderGestorProyectos() {
 
     contenedorApp.innerHTML = `
         <section class="vista-card">
-            <h1>Práctica 4: Gestor de proyectos</h1>
+            <h1>Práctica : Gestor de proyectos</h1>
             <nav class="subnav">
                 <button type="button" data-subvista="inicio">Inicio</button>
                 <button type="button" data-subvista="proyectos">Proyectos</button>
@@ -837,7 +837,7 @@ function renderNomina() {
 
     contenedorApp.innerHTML = `
         <section class="vista-card">
-            <h1>Práctica 5: Nómina semanal</h1>
+            <h1>Práctica : Nómina semanal</h1>
             <form id="formularioNomina" class="form-columna">
                 <label for="nombreNomina">Nombre:</label>
                 <input type="text" id="nombreNomina" required>
@@ -908,7 +908,7 @@ function renderEncuesta() {
 
     contenedorApp.innerHTML = `
         <section class="vista-card">
-            <h1>Práctica 6: Encuesta del curso</h1>
+            <h1>Práctica : Encuesta del curso</h1>
             <form id="formularioEncuesta" class="form-columna">
                 <label for="nombreEncuesta">Nombre</label>
                 <input type="text" id="nombreEncuesta" name="nombre" required>
@@ -984,7 +984,7 @@ function renderEncuesta() {
 
 // PRÁCTICA 7: PROMEDIO DE TRES CALIFICACIONES
 function renderPromedio() {
-    contenedorApp.innerHTML=`<section class="vista-card"><h1>Práctica 7: Promedio de tres calificaciones</h1>
+    contenedorApp.innerHTML=`<section class="vista-card"><h1>Práctica : Promedio de tres calificaciones</h1>
         <form id="formPromedio" class="form-columna"><label>Nombre del alumno</label><input id="promNombre" required>
         <label>Primera calificación</label><input id="cal1" type="number" min="0" max="100" step="0.1" required>
         <label>Segunda calificación</label><input id="cal2" type="number" min="0" max="100" step="0.1" required>
@@ -1001,7 +1001,7 @@ function renderPromedio() {
 
 // PRÁCTICA 8: CÁLCULO DE DESCUENTOS
 function renderDescuentos() {
-    contenedorApp.innerHTML=`<section class="vista-card"><h1>Práctica 8: Cálculo de descuentos</h1>
+    contenedorApp.innerHTML=`<section class="vista-card"><h1>Práctica : Cálculo de descuentos</h1>
         <form id="formDescuento" class="form-columna"><label>Nombre del producto</label><input id="descProducto" required>
         <label>Precio de compra (MXN)</label><input id="descPrecio" type="number" min="0" step="0.01" required>
         <label>Descuento (%)</label><input id="descPorcentaje" type="number" min="0" max="100" step="1" required>
