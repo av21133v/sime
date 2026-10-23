@@ -65,3 +65,96 @@ th, td {
     padding: 8px;
     text-align: left;
 }
+
+/* Navegación de SIME y prácticas */
+.menu-practicas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 18px 0 24px;
+}
+.menu-practicas button {
+    width: auto;
+    margin: 0;
+    padding: 9px 12px;
+    cursor: pointer;
+}
+.menu-practicas button.activo,
+.subnav button.activo {
+    font-weight: bold;
+    outline: 2px solid #555;
+}
+.vista-header { margin-bottom: 25px; }
+.vista-card {
+    padding: 18px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+.vista-card h1 { margin-top: 0; }
+.form-fila {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+.form-fila input { flex: 1 1 220px; }
+.form-fila button, .form-columna button, .botones-fila button {
+    width: auto;
+    padding: 9px 14px;
+}
+.form-columna {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    max-width: 520px;
+}
+.form-columna input, .form-columna select, .form-columna textarea {
+    width: 100%;
+    box-sizing: border-box;
+}
+.form-columna button { align-self: flex-start; }
+.lista-simple { padding-left: 22px; }
+.lista-simple li { margin: 10px 0; }
+.lista-simple li button { display: inline-block; width: auto; margin: 0 0 0 8px; padding: 6px 10px; }
+.completada { text-decoration: line-through; opacity: .7; }
+.tablero, .tarjetas-producto {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+}
+.tablero > div {
+    min-width: 0;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+.tarjeta {
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background: #fafafa;
+}
+.tarjeta button {
+    display: inline-block;
+    width: auto;
+    margin: 8px 4px 0 0;
+    padding: 6px 9px;
+}
+.subnav { display: flex; flex-wrap: wrap; gap: 8px; margin: 15px 0; }
+.subnav button { width: auto; margin: 0; }
+.opciones-radio { display: flex; flex-wrap: wrap; gap: 12px; }
+.opciones-radio label { display: inline-flex; align-items: center; gap: 4px; }
+.opciones-radio input { width: auto; }
+.botones-fila { display: flex; gap: 10px; }
+.tabla-contenedor { overflow-x: auto; }
+#estado.error { color: #b91c1c; }
+#estado.exito { color: #15803d; }
+@media (max-width: 720px) {
+    .contenido { flex-direction: column; }
+    .registro { width: 100%; }
+    .indicadores { flex-wrap: wrap; }
+    .indicador { flex: 1 1 130px; }
+}
